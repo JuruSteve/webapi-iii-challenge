@@ -1,9 +1,14 @@
 const express = require('express')
 const morgan = require('morgan')
 const helmet = require('helmet')
-
+const cors = require('cors')
+const postsRouter = require('./routes/postsRouter')
+const usersRouter = require('./routes/usersRouter')
 const server = express()
 server.use(express.json())
+server.use(cors({
+  origin: 'http://localhost:3000'
+}))
 server.use(helmet())
 server.use(morgan('dev'))
 
